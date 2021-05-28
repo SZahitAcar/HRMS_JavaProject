@@ -7,8 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name="job_positions")
 public class JobTitle {
 	
@@ -19,29 +26,5 @@ public class JobTitle {
 	
 	@Column(name="position")
 	private String jobPosition;
-	
-	
-	public JobTitle() {
-		
-	}
-	
-	public JobTitle(int id, String jobPosition) {
-		super();
-		this.id = id;
-		this.jobPosition = jobPosition;
-	}
-	
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getJobPosition() {
-		return jobPosition;
-	}
-	public void setJobPosition(String jobPosition) {
-		this.jobPosition = jobPosition;
-	}
 	
 }

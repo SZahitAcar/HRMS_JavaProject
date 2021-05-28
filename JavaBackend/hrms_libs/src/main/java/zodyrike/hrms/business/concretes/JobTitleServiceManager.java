@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import zodyrike.hrms.business.abstracts.JobTitleService;
+import zodyrike.hrms.core.utilities.results.DataResult;
+import zodyrike.hrms.core.utilities.results.Result;
+import zodyrike.hrms.core.utilities.results.SuccessDataResult;
+import zodyrike.hrms.core.utilities.results.SuccessResult;
 import zodyrike.hrms.dataAccess.abstracts.JobTitleDao;
 import zodyrike.hrms.entities.concretes.JobTitle;
 
@@ -23,9 +27,18 @@ public class JobTitleServiceManager implements JobTitleService{
 	}
 
 	@Override
-	public List<JobTitle> getAll() {
+	public DataResult<List<JobTitle>> getAll() {
 		// TODO Auto-generated method stub
-		return this.jobTitleDao.findAll();
+		return new SuccessDataResult<List<JobTitle>>
+		(this.jobTitleDao.findAll(), "Veriler Listelendi");
+				
+				
+	}
+
+	@Override
+	public Result add(JobTitle jobTitle) {
+		this.jobTitleDao.save(jobTitle);
+		return new SuccessResult("Meslek Tipi eklendi");
 	}
 
 }

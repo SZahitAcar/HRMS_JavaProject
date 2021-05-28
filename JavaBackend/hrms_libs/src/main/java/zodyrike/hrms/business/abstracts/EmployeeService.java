@@ -4,9 +4,11 @@ import java.util.List;
 
 import zodyrike.hrms.core.utilities.results.DataResult;
 import zodyrike.hrms.core.utilities.results.Result;
-import zodyrike.hrms.entities.concretes.JobTitle;
+import zodyrike.hrms.entities.concretes.Employees;
 
-public interface JobTitleService {
-	DataResult<List<JobTitle>> getAll();
-	Result add(JobTitle jobTitle);
+public interface EmployeeService {
+	
+	DataResult<List<Employees>> getAll();
+	Result add(Employees employee);
+	
 }
