@@ -1,7 +1,10 @@
 package zodyrike.hrms.entities.concretes;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -31,4 +34,6 @@ public class Employers extends User{
 		@Column(name="phone_number")
 		private String phoneNumber;
 		
+		@OneToMany(mappedBy="employers")
+		private List<JobAdvertisement> jobAdvertisement;
 }	
